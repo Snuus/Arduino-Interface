@@ -19,11 +19,19 @@ namespace ArduinoLedControllerInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            textBox9.Text = textBox1.Text;
+            textBox1.Clear();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkBox1.Checked)
+            {
+                pictureBox1.Image = Properties.Resources.green_led_off_hi;
+            } else
+            {
+                pictureBox1.Image = Properties.Resources.white_led_off_md;
+            }
 
         }
 
@@ -69,12 +77,54 @@ namespace ArduinoLedControllerInterface
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+        
+
+
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                pictureBox2.Image = Properties.Resources.green_led_off_hi;
+            }
+            else
+            {
+                pictureBox2.Image = Properties.Resources.white_led_off_md;
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked)
+            {
+                pictureBox3.Image = Properties.Resources.green_led_off_hi;
+            }
+            else
+            {
+                pictureBox3.Image = Properties.Resources.white_led_off_md;
+            }
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+  
+    }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            textBox9.Clear();
         }
     }
 }
