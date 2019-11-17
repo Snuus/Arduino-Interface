@@ -12,9 +12,14 @@ namespace ArduinoLedControllerInterface
 {
     public partial class Form1 : Form
     {
+      
+
         public Form1()
         {
             InitializeComponent();
+            radioButton2.Checked = true;
+            radioButton4.Checked = true;
+            radioButton6.Checked = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,6 +67,10 @@ namespace ArduinoLedControllerInterface
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            textBox11.BackColor = Color.Red;
+            textBox11.Text = "OFF";
+            progressBar1.Value = +(int)numericUpDown1.Minimum;
+            numericUpDown1.Value = 0;
 
         }
 
@@ -72,6 +81,10 @@ namespace ArduinoLedControllerInterface
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
+            textBox12.BackColor = Color.Red;
+            textBox12.Text = "OFF";
+            progressBar2.Value = +(int)numericUpDown1.Minimum;
+            numericUpDown2.Value = 0;
 
         }
 
@@ -133,11 +146,13 @@ namespace ArduinoLedControllerInterface
             {
                 textBox11.BackColor = Color.Green;
                 textBox11.Text = "ON";
-
+                progressBar1.Value = +(int)numericUpDown1.Minimum;
             } else 
             {
                 textBox11.BackColor = Color.Red;
                 textBox11.Text = "OFF";
+                progressBar1.Value = +(int)numericUpDown1.Minimum;
+                numericUpDown1.Value = 0;
 
             }
         }
@@ -177,6 +192,35 @@ namespace ArduinoLedControllerInterface
                 textBox13.Text = "OFF";
 
             }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            progressBar1.Value = +(int)numericUpDown1.Value;
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox13.BackColor = Color.Red;
+            textBox13.Text = "OFF";
+            progressBar3.Value = +(int)numericUpDown1.Minimum;
+            numericUpDown3.Value = 0;
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            progressBar2.Value = +(int)numericUpDown2.Value;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            progressBar3.Value = +(int)numericUpDown3.Value;
         }
     }
 }
