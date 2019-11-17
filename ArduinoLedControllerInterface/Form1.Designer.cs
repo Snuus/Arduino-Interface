@@ -40,11 +40,16 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.toolTiptext = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.progressBar3 = new System.Windows.Forms.ProgressBar();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
@@ -64,11 +69,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -122,6 +122,7 @@
             this.radioButton1.TabIndex = 4;
             this.radioButton1.Text = "Fan 1 ON";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -215,6 +216,17 @@
             this.groupBox2.Text = "LCD Text";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.LightCoral;
+            this.button5.Location = new System.Drawing.Point(245, 76);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(99, 21);
+            this.button5.TabIndex = 27;
+            this.button5.Text = "Clear Text";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(4, 51);
@@ -245,6 +257,17 @@
             this.textBox8.Text = "Current LCD Text :";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightGreen;
+            this.button1.Location = new System.Drawing.Point(245, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 21);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Update Text";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // toolTiptext
             // 
@@ -284,6 +307,33 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Fan Control";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(595, 45);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 20);
+            this.textBox13.TabIndex = 27;
+            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
+            // 
+            // textBox12
+            // 
+            this.textBox12.BackColor = System.Drawing.Color.White;
+            this.textBox12.Location = new System.Drawing.Point(324, 45);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 20);
+            this.textBox12.TabIndex = 26;
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.Color.White;
+            this.textBox11.Location = new System.Drawing.Point(57, 45);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.TabIndex = 25;
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // progressBar3
             // 
@@ -328,7 +378,6 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(193, 23);
             this.progressBar1.TabIndex = 20;
-            this.progressBar1.Value = 250;
             // 
             // textBox5
             // 
@@ -379,6 +428,7 @@
             this.radioButton7.TabIndex = 14;
             this.radioButton7.Text = "Fan 3 ON";
             this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // numericUpDown3
             // 
@@ -436,6 +486,7 @@
             this.radioButton5.TabIndex = 9;
             this.radioButton5.Text = "Fan 2 ON";
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // numericUpDown2
             // 
@@ -483,52 +534,6 @@
             this.radioButton2.Text = "Fan 1 OFF";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightGreen;
-            this.button1.Location = new System.Drawing.Point(245, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 21);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Update Text";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.LightCoral;
-            this.button5.Location = new System.Drawing.Point(245, 76);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(99, 21);
-            this.button5.TabIndex = 27;
-            this.button5.Text = "Clear Text";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // textBox11
-            // 
-            this.textBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.textBox11.Location = new System.Drawing.Point(57, 45);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 25;
-            this.textBox11.Text = "ON";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(324, 45);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 26;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(595, 45);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 27;
             // 
             // Form1
             // 

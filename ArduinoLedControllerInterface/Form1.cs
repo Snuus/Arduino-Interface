@@ -126,5 +126,57 @@ namespace ArduinoLedControllerInterface
         {
             textBox9.Clear();
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                textBox11.BackColor = Color.Green;
+                textBox11.Text = "ON";
+
+            } else 
+            {
+                textBox11.BackColor = Color.Red;
+                textBox11.Text = "OFF";
+
+            }
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked)
+            {
+                textBox12.BackColor = Color.Green;
+                textBox12.Text = "ON";
+
+            }
+            else
+            {
+                textBox12.BackColor = Color.Red;
+                textBox12.Text = "OFF";
+
+            }
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton7.Checked)
+            {
+                textBox13.BackColor = Color.Green;
+                textBox13.Text = "ON";
+
+            }
+            else
+            {
+                textBox13.BackColor = Color.Red;
+                textBox13.Text = "OFF";
+
+            }
+        }
     }
 }
