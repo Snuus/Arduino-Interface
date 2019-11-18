@@ -74,14 +74,22 @@ namespace ArduinoLedControllerInterface
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
-            {
-                pictureBox1.Image = Properties.Resources.green_led_off_hi;
-            } else
-            {
-                pictureBox1.Image = Properties.Resources.white_led_off_md;
-            }
 
+            if (isConnected)
+            {
+
+                if (checkBox1.Checked)
+                {
+                    port.Write("#LED1ON\n");
+                    pictureBox1.Image = Properties.Resources.green_led_off_hi;
+                }
+                else
+                {
+                    port.Write("#LED1OF\n");
+                    pictureBox1.Image = Properties.Resources.white_led_off_md;
+                }
+
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -152,25 +160,35 @@ namespace ArduinoLedControllerInterface
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox2.Checked)
+            if (isConnected)
             {
-                pictureBox2.Image = Properties.Resources.green_led_off_hi;
-            }
-            else
-            {
-                pictureBox2.Image = Properties.Resources.white_led_off_md;
+                if (checkBox2.Checked)
+                {
+                    port.Write("#LED2ON\n");
+                    pictureBox2.Image = Properties.Resources.green_led_off_hi;
+                }
+                else
+                {
+                    port.Write("#LED2OF\n");
+                    pictureBox2.Image = Properties.Resources.white_led_off_md;
+                }
+
             }
         }
-
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.Checked)
+            if (isConnected)
             {
-                pictureBox3.Image = Properties.Resources.green_led_off_hi;
-            }
-            else
-            {
-                pictureBox3.Image = Properties.Resources.white_led_off_md;
+                if (checkBox3.Checked)
+                {
+                    port.Write("#LED3ON\n");
+                    pictureBox3.Image = Properties.Resources.green_led_off_hi;
+                }
+                else
+                {
+                    port.Write("#LED3OF\n");
+                    pictureBox3.Image = Properties.Resources.white_led_off_md;
+                }
             }
         }
 
