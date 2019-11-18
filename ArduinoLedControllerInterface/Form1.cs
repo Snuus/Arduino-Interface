@@ -7,26 +7,70 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO.Ports;
 
 namespace ArduinoLedControllerInterface
 {
     public partial class Form1 : Form
     {
+        bool isConnected = false;
+        String[] ports;
+        SerialPort port;
       
 
         public Form1()
         {
             InitializeComponent();
+            disableControls();
+            getAvailableComPorts();
             radioButton2.Checked = true;
             radioButton4.Checked = true;
             radioButton6.Checked = true;
+
+            foreach (string port in ports)
+            {
+                comboBox1.Items.Add(port);
+                Console.WriteLine(port);
+                if (ports[0] != null)
+                {
+                    comboBox1.SelectedItem = ports[0];
+                }
+            }
+
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox9.Text = textBox1.Text;
-            textBox1.Clear();
+
+
+            if (isConnected)
+            {
+                port.Write("#TEXT" + textBox1.Text + "#\n");
+                textBox9.Text = textBox1.Text;
+                textBox1.Clear();
+            }
         }
+
+
+        private void enableControls()
+        {
+            checkBox1.Enabled = true;
+            textBox1.Enabled = true;
+            connectbutton.Enabled = true;
+            button1.Enabled = true;
+            button5.Enabled = true;
+        }
+
+
+        private void disableControls()
+        {
+            checkBox1.Enabled = false;
+            textBox1.Enabled = false;
+            button5.Enabled = false;
+            button1.Enabled = false;
+        }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -138,6 +182,9 @@ namespace ArduinoLedControllerInterface
         private void button5_Click(object sender, EventArgs e)
         {
             textBox9.Clear();
+            port.Write("#STAR\n");
+
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -221,6 +268,46 @@ namespace ArduinoLedControllerInterface
         private void button4_Click(object sender, EventArgs e)
         {
             progressBar3.Value = +(int)numericUpDown3.Value;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (!isConnected)
+            {
+                connectToArduino();
+            }else
+            {
+                disconnectFromArduino();
+            }
+        }
+
+        private void disconnectFromArduino()
+        {
+            isConnected = false;
+            port.Write("#STOP\n");
+            port.Close();
+            connectbutton.Text = "Connect";
+            disableControls();
+            //resetDefaults();
+            
+
+        }
+
+
+        void getAvailableComPorts()
+        {
+            ports = SerialPort.GetPortNames();
+        }
+
+        private void connectToArduino()
+        {
+            isConnected = true;
+            string selectedPort = comboBox1.GetItemText(comboBox1.SelectedItem);
+            port = new SerialPort(selectedPort, 9600, Parity.None, 8, StopBits.One);
+            port.Open();
+            port.Write("#STAR\n");
+            connectbutton.Text = "Disconnect";
+            enableControls();
         }
     }
 }

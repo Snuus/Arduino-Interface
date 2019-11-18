@@ -72,6 +72,10 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.connectbutton = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.GroupBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -84,6 +88,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.button6.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioButton1
@@ -116,7 +121,7 @@
             this.groupBox2.Controls.Add(this.textBox8);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 44);
+            this.groupBox2.Location = new System.Drawing.Point(15, 87);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(352, 130);
             this.groupBox2.TabIndex = 7;
@@ -261,7 +266,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(29, 93);
+            this.checkBox1.Location = new System.Drawing.Point(37, 93);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(56, 17);
             this.checkBox1.TabIndex = 1;
@@ -272,7 +277,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(138, 93);
+            this.checkBox2.Location = new System.Drawing.Point(187, 93);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(56, 17);
             this.checkBox2.TabIndex = 2;
@@ -283,7 +288,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(244, 93);
+            this.checkBox3.Location = new System.Drawing.Point(328, 93);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(56, 17);
             this.checkBox3.TabIndex = 3;
@@ -305,7 +310,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ArduinoLedControllerInterface.Properties.Resources.white_led_off_md;
-            this.pictureBox2.Location = new System.Drawing.Point(130, 19);
+            this.pictureBox2.Location = new System.Drawing.Point(179, 19);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 62);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -316,7 +321,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::ArduinoLedControllerInterface.Properties.Resources.white_led_off_md;
-            this.pictureBox3.Location = new System.Drawing.Point(236, 19);
+            this.pictureBox3.Location = new System.Drawing.Point(321, 19);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(64, 62);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -332,9 +337,9 @@
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(436, 44);
+            this.groupBox1.Location = new System.Drawing.Point(373, 87);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(352, 130);
+            this.groupBox1.Size = new System.Drawing.Size(418, 130);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LED Control";
@@ -534,7 +539,7 @@
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Location = new System.Drawing.Point(12, 192);
+            this.groupBox3.Location = new System.Drawing.Point(15, 223);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(776, 246);
             this.groupBox3.TabIndex = 8;
@@ -576,12 +581,54 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Fan 3";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(395, 37);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(163, 21);
+            this.comboBox1.TabIndex = 9;
+            // 
+            // connectbutton
+            // 
+            this.connectbutton.Location = new System.Drawing.Point(582, 35);
+            this.connectbutton.Name = "connectbutton";
+            this.connectbutton.Size = new System.Drawing.Size(161, 23);
+            this.connectbutton.TabIndex = 10;
+            this.connectbutton.Text = "Connect";
+            this.connectbutton.UseVisualStyleBackColor = true;
+            this.connectbutton.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button6.Controls.Add(this.textBox14);
+            this.button6.Controls.Add(this.comboBox1);
+            this.button6.Controls.Add(this.connectbutton);
+            this.button6.Location = new System.Drawing.Point(15, 2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(776, 79);
+            this.button6.TabIndex = 27;
+            this.button6.TabStop = false;
+            this.button6.Text = "Connection";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(26, 38);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(318, 20);
+            this.textBox14.TabIndex = 11;
+            this.textBox14.Text = "Select the Arduino port you wish to connect to";
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(823, 481);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -605,6 +652,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.button6.ResumeLayout(false);
+            this.button6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -654,6 +703,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button connectbutton;
+        private System.Windows.Forms.GroupBox button6;
+        private System.Windows.Forms.TextBox textBox14;
     }
 }
 
